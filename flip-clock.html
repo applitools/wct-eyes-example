@@ -111,10 +111,11 @@
         super();
         this.time = '000000';
         this.timer = null;
+        this._clockTimeout = null;
       }
       _createClock() {
         this.time = moment().format('HHmmss');
-        setTimeout(() => this._createClock(), 1000);
+        this._clockTimeout = setTimeout(() => this._createClock(), 1000);
       }
       _createTimer() {
         if(this.isRunning) {
@@ -141,6 +142,7 @@
         this.isRunning = false;
       }
       _resetCount() {
+        clearTimeout(this._clockTimeout);
         this.isRunning = false;
         this.time = this.startFrom ? '00' + this.startFrom + '00' : '000000';
         this.timer = null;
