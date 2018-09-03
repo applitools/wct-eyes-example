@@ -1,35 +1,34 @@
-[![Build Status](https://travis-ci.org/Granze/flip-clock.svg?branch=master)](https://travis-ci.org/Granze/flip-clock) [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/granze/flip-clock)
+This repository is mostly a fork of [<flip-clock>](https://github.com/Granze/flip-clock).
 
+But in addition, it contains example of visual testing using [wct-eyes](https://github.com/applitools/wct-eyes) plugin.
+
+---
 
 # &lt;flip-clock&gt;
 
 A flip clock, timer and countdown made with [Polymer](http://polymer-project.org) and [Moment.js](https://github.com/moment/momentjs.com)
 
-## Demo
-Full demo [here](https://www.webcomponents.org/element/granze/flip-clock/demo/demo/index.html)
+## Run tests
 
-<!---
-```
-<custom-element-demo>
-  <template>
-    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="flip-clock.html">
-    <next-code-block></next-code-block>
-  </template>
-</custom-element-demo>
-```
--->
-```html
-<flip-clock></flip-clock>
-```
-
-## Installation
-
-Install using [Bower](http://bower.io):
+Install npm dependencies:
 
 ```shell
- bower install flip-clock
+ npm install
 ```
+
+Install using [Bower](http://bower.io) dependencies:
+
+```shell
+ npx bower install
+```
+
+Run wct tool:
+
+```shell
+ npx wct
+```
+
+* The `wct-eyes` plugin is loaded automatically via [wct.conf.json](./wct.conf.json).
 
 ## License
 

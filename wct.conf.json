@@ -1,0 +1,17 @@
+{
+  "verbose": true,
+  "testTimeout": 300000,
+  "plugins": {
+    "local": {
+      "browsers": ["chrome"],
+      "skipSeleniumInstall": true
+    },
+    "sauce": {
+      "disabled": true
+    },
+    "eyes": {
+      "disabled": false,
+      "verbose": true
+    }
+  }
+}

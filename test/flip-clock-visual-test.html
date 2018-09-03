@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="../bower_components/web-component-tester/browser.js"></script>
+  <!--<script src="../bower_components/wct-eyes/eyes-browser.js"></script>-->
+
+  <link rel="import" href="../flip-clock.html">
+
+</head>
+<body>
+
+  <test-fixture id="clockFixture">
+    <template>
+      <flip-clock id="clockElement"></flip-clock>
+    </template>
+  </test-fixture>
+
+  <script>
+    describe('<flip-clock>', function() {
+      var clock, clockShadowRoot, eyes;
+      this.timeout(5 * 60 * 1000);
+
+      before(function () {
+        eyes = new (typeof Eyes !== 'undefined' ? Eyes : parent.Eyes)();
+      });
+
+      beforeEach(function() {
+        clock = fixture('clockFixture');
+        clockShadowRoot = clock.shadowRoot;
+
+        return eyes.open(this.test.parent.title, this.currentTest.title);
+      });
+
+      it('should display clock', function(done) {
+        eyes.checkWindow('Clock without buttons');
+        eyes.close();
+
+        eyes.whenDone(done);
+      });
+
+      it('should display clock with command buttons', function() {
+        clock.setAttribute('show-buttons', 'true');
+        clock.setAttribute('hide-seconds', 'true');
+        assert.isTrue(clock.showButtons);
+        assert.isFalse(clockShadowRoot.querySelector('.buttons').hasAttribute('hidden'));
+
+        eyes.checkWindow('Clock with buttons');
+        return eyes.close();
+      });
+
+      it('should display timer', function() {
+        clock.displayMode = 'timer';
+        clock.ready();
+
+        assert.equal(clock.time, '000000');
+
+        return eyes.checkWindow('Timer with buttons').then(() => {
+          clock.time = '002000';
+          eyes.checkWindow('Timer with buttons and 20 min');
+          return eyes.close();
+        });
+      });
+
+      afterEach(function () {
+        return eyes.abortIfNotClosed();
+      });
+    });
+  </script>
+</body>
+</html>
