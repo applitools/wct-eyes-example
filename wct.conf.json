@@ -3,8 +3,18 @@
   "testTimeout": 300000,
   "plugins": {
     "local": {
-      "browsers": ["chrome"],
-      "skipSeleniumInstall": true
+      "browsers": ["chrome", "firefox"],
+      "skipSeleniumInstall": true,
+      "browserOptions": {
+        "chrome": [
+          "start-maximized",
+          "headless",
+          "disable-gpu"
+        ],
+        "firefox": [
+          "--headless"
+        ]
+      }
     },
     "sauce": {
       "disabled": true
