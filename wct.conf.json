@@ -21,7 +21,8 @@
     },
     "eyes": {
       "disabled": false,
-      "verbose": true
+      "verbose": true,
+      "subsuitesWidth": 1000
     }
   }
 }

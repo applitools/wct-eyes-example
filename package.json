@@ -2,10 +2,10 @@
   "name": "wct-eyes-example",
   "version": "1.0.0",
   "dependencies": {
+    "bower": "^1.8.4"
   },
   "devDependencies": {
     "web-component-tester": "^6.8.0",
-    "wct-eyes": "^1.0.0",
-    "bower": "^1.8.4"
+    "wct-eyes": "~1.0.0-alpha"
   }
 }
