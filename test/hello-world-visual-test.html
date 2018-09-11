@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="../bower_components/web-component-tester/browser.js"></script>
+  <!--<script src="../bower_components/wct-eyes/eyes-browser.js"></script>-->
+
+  <link rel="import" href="../flip-clock.html">
+
+</head>
+<body>
+
+  <test-fixture id="simple">
+    <template>
+      <p>Hello world!</p>
+    </template>
+  </test-fixture>
+
+  <script>
+    suite('helloWorldTest', function() { // check that you are using function and not () =>, because `this` is not available when you are using arrows
+      this.timeout(60000); // we need to increase timeout, because we need some more time for visual validation
+
+      let simple, eyes; // add eyes variable
+      suiteSetup(function() {
+        eyes = new (typeof Eyes !== 'undefined' ? Eyes : parent.Eyes)(); // create an Eyes instance using local Eyes or parent.Eyes class
+      });
+
+      setup(function() {
+        simple = fixture('simple');
+        return eyes.open(this.test.parent.title, this.currentTest.title); // open Eyes session, use suite name as application name and test name as test name
+      });
+
+      test('text should be equal given', function() {
+        assert.equal(simple.textContent, 'Hello world!');
+
+        eyes.checkWindow('Hello world text'); // match current viewport
+        // this method returns a promise, so it should be returned
+        return eyes.close(); // close matching, get match results
+      });
+
+      test('text should be changed and validated', function(done) {
+        simple.textContent = simple.textContent + ' I\'m visual test example.';
+        assert.equal(simple.textContent, 'Hello world! I\'m visual test example.');
+
+        eyes.checkWindow('Hello world text +');
+        eyes.close();
+
+        eyes.whenDone(done); // this method can be used instead of returning promise, you can use callback function
+      });
+
+      teardown(function () {
+        return eyes.abortIfNotClosed(); // used to close session if an error occurred in a test
+      });
+    });
+  </script>
+</body>
+</html>
