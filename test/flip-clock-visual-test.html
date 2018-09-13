@@ -51,17 +51,17 @@
         return eyes.close();
       });
 
-      it('should display timer', function() {
+      it('should display timer', async () => {
         clock.displayMode = 'timer';
         clock.ready();
 
         assert.equal(clock.time, '000000');
+        await eyes.checkWindow('Timer with buttons');
 
-        return eyes.checkWindow('Timer with buttons').then(() => {
-          clock.time = '002000';
-          eyes.checkWindow('Timer with buttons and 20 min');
-          return eyes.close();
-        });
+        clock.time = '002000';
+        await eyes.checkWindow('Timer with buttons and 20 min');
+
+        await eyes.close();
       });
 
       afterEach(function () {
