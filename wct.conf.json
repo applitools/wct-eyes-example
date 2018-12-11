@@ -1,5 +1,5 @@
 {
-  "verbose": false,
+  "verbose": true,
   "testTimeout": 300000,
   "plugins": {
     "local": {
@@ -22,6 +22,7 @@
     "eyes": {
       "disabled": false,
       "verbose": false,
+      "proxy": false,
       "subsuitesWidth": 1000
     }
   }
