@@ -5,7 +5,7 @@
 
   <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
   <script src="../bower_components/web-component-tester/browser.js"></script>
-  <!--<script src="../bower_components/wct-eyes/eyes-browser.js"></script>-->
+  <script src="../node_modules/wct-eyes/eyes-browser.js"></script>
 
   <link rel="import" href="../flip-clock.html">
 
@@ -24,7 +24,7 @@
 
       let simple, eyes; // add eyes variable
       suiteSetup(function() {
-        eyes = new (typeof Eyes !== 'undefined' ? Eyes : parent.Eyes)(); // create an Eyes instance using local Eyes or parent.Eyes class
+        eyes = new Eyes(); // create an Eyes instance
       });
 
       setup(function() {
