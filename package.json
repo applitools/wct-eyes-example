@@ -9,7 +9,7 @@
     "wct": "wct"
   },
   "devDependencies": {
-    "wct-eyes": "^1.0.0-alpha5",
+    "wct-eyes": "^1.0.0",
     "web-component-tester": "^6.9.2"
   }
 }
