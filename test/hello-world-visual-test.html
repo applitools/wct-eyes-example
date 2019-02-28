@@ -23,11 +23,11 @@
       this.timeout(60000); // we need to increase timeout, because we need some more time for visual validation
 
       let simple, eyes; // add eyes variable
-      setup(function() { // before
+      suiteSetup(function() { // before
         eyes = new Eyes(); // create an Eyes instance
       });
 
-      suiteSetup(function() { // beforeEach
+      setup(function() { // beforeEach
         simple = fixture('simple');
         return eyes.open(this.test.parent.title, this.currentTest.title); // open Eyes session, use suite name as application name and test name as test name
       });
@@ -50,7 +50,7 @@
         eyes.whenDone(done); // this method can be used instead of returning promise, you can use callback function
       });
 
-      suiteTeardown(function () { // afterEach
+      teardown(function () { // afterEach
         return eyes.abortIfNotClosed(); // used to close session if an error occurred in a test
       });
     });
