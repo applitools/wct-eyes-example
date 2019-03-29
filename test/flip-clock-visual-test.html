@@ -35,7 +35,7 @@
       });
 
       it('should display clock', function(done) {
-        eyes.checkWindow('Clock without buttons');
+        eyes.checkWindow('Clock without buttons', true);
         eyes.close();
 
         eyes.whenDone(done);
