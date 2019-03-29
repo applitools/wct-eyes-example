@@ -2,14 +2,14 @@
   "name": "wct-eyes-example",
   "version": "1.0.0",
   "dependencies": {
-    "bower": "^1.8.6"
+    "bower": "^1.8.8"
   },
   "scripts": {
     "install": "bower install",
     "wct": "wct"
   },
   "devDependencies": {
-    "wct-eyes": "^1.0.0",
+    "wct-eyes": "^1.1.0",
     "web-component-tester": "^6.9.2"
   }
 }
