@@ -40,14 +40,11 @@
         return eyes.close(); // close matching, get match results
       });
 
-      test('text should be changed and validated', function(done) {
+      test('text should be changed and validated', function() {
         simple.textContent = simple.textContent + ' I\'m visual test example.';
         assert.equal(simple.textContent, 'Hello world! I\'m visual test example.');
 
-        eyes.checkWindow('Hello world text +');
-        eyes.close();
-
-        eyes.whenDone(done); // this method can be used instead of returning promise, you can use callback function
+        return eyes.testWindow('Hello world text +'); // when using testWindow, you don't need to call `eyes.close()`
       });
 
       teardown(function () { // afterEach
