@@ -3,7 +3,7 @@
   "testTimeout": 300000,
   "plugins": {
     "local": {
-      "browsers": ["chrome", "firefox"],
+      "browsers": ["chrome"],
       "skipSeleniumInstall": true,
       "browserOptions": {
         "chrome": [
@@ -21,7 +21,7 @@
     },
     "eyes": {
       "disabled": false,
-      "verbose": false,
+      "verbose": true,
       "proxy": false,
       "subsuitesWidth": 1000
     }
