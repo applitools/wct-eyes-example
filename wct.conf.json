@@ -23,7 +23,8 @@
       "disabled": false,
       "verbose": true,
       "proxy": false,
-      "subsuitesWidth": 1000
+      "subsuitesWidth": 1000,
+      "branchName": "test"
     }
   }
 }
