@@ -44,7 +44,9 @@
         simple.textContent = simple.textContent + ' I\'m visual test example.';
         assert.equal(simple.textContent, 'Hello world! I\'m visual test example.');
 
-        return eyes.testWindow('Hello world text +'); // when using testWindow, you don't need to call `eyes.close()`
+        eyes.checkWindow('Hello world text +'); // match current viewport
+        // this method returns a promise, so it should be returned
+        return eyes.close(); // close matching, get match results
       });
 
       teardown(function () { // afterEach
