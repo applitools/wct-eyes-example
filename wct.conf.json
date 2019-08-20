@@ -24,7 +24,15 @@
       "verbose": true,
       "proxy": false,
       "subsuitesWidth": 1000,
-      "branchName": "test"
+      "branchName": "test",
+      "runner": "VisualGrid",
+      "browsersInfo": [
+        {
+          "name": "chrome",
+          "width": 1200,
+          "height": 800
+        }
+      ]
     }
   }
 }
